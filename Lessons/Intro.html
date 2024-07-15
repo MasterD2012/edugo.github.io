@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML PowerPoint Presentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .slide {
+            display: none;
+            padding: 40px;
+            text-align: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .slide.active {
+            display: block;
+        }
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .navigation button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide active" id="slide1">
+        <h1>Welcome to HTML Basics</h1>
+        <p>Let's learn some fundamental concepts of HTML.</br>This lesson was made in HTML and teaches HTML too!</p>
+    </div>
+    <div class="slide" id="slide2">
+        <h1>What is HTML?</h1>
+        <p>HTML stands for HyperText Markup Language. It is the standard language for creating web pages.</p>
+        <code>
+            &lt;!DOCTYPE html&gt;<br>
+            &lt;html&gt;<br>
+            &lt;head&gt;<br>
+            &lt;/head&gt;<br>
+            &lt;body&gt;<br>
+            &lt;/body&gt;<br>
+            &lt;/html&gt;
+        </code>
+    </div>
+    <div class="slide" id="slide3">
+        <h1>Basic HTML Structure</h1>
+        <p>Every HTML document has a basic structure that includes elements like &lt;html&gt;, &lt;head&gt;, and &lt;body&gt;.</p>
+        <code>
+            &lt;html&gt;: The root element of an HTML page.<br>
+            &lt;head&gt;: Contains meta-information about the HTML document.<br>
+            &lt;body&gt;: Contains the content of the HTML document.
+        </code>
+    </div>
+    <div class="slide" id="slide4">
+        <h1>Common HTML Tags</h1>
+        <p>Here are some common HTML tags:</p>
+        <code>
+            &lt;h1&gt; to &lt;h6&gt;: Header tags<br>
+            &lt;p&gt;: Paragraph tag<br>
+            &lt;a&gt;: Anchor tag for links<br>
+            &lt;img&gt;: Image tag
+        </code>
+    </div>
+    <div class="slide" id="slide5">
+        <h1>Thank You!</h1>
+        <p>That's a brief introduction to HTML basics. Happy coding!</p>
+    </div>
+    <div class="navigation">
+        <button onclick="previousSlide()">Previous</button>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 5;
+
+        function showSlide(n) {
+            document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('active'));
+            document.getElementById('slide' + n).classList.add('active');
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlide > 1) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+    </script>
+</body>
+</html>
